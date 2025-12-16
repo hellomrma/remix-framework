@@ -1,0 +1,64 @@
+{
+  "welcome": "Welcome to Remix Framework! 🎉",
+  "description": "A simple website built with Remix.",
+  "gettingStarted": {
+    "title": "Getting Started",
+    "description": "You can create pages by adding new routes to the directory.",
+    "code": "app/routes/"
+  },
+  "devServer": {
+    "title": "Run Dev Server",
+    "description": "You can start the development server with the command.",
+    "code": "npm run dev"
+  },
+  "language": {
+    "ko": "한국어",
+    "en": "English",
+    "switch": "Switch Language"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "About",
+    "subtitle": "About Remix Framework",
+    "description": "This website is built using Remix Framework.",
+    "features": {
+      "title": "Key Features",
+      "item1": {
+        "title": "Server-Side Rendering",
+        "description": "SSR support for fast initial loading and SEO optimization"
+      },
+      "item2": {
+        "title": "Type Safety",
+        "description": "Full type safety through TypeScript"
+      },
+      "item3": {
+        "title": "Internationalization",
+        "description": "i18n support for Korean and English"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Please contact us if you have any questions",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Submit",
+      "namePlaceholder": "Enter your name",
+      "emailPlaceholder": "Enter your email",
+      "messagePlaceholder": "Enter your message"
+    },
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address"
+    }
+  }
+}
+
