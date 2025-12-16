@@ -12,36 +12,39 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
-  color: #e2e8f0;
-  background: #0f172a;
+  color: #ffffff;
+  background: #000000;
 }
 
-// 다크 테마 변수
-$primary-blue: #60a5fa;
-$primary-indigo: #818cf8;
-$primary-cyan: #06b6d4;
-$text-light: #f1f5f9;
-$text-gray: #cbd5e1;
-$text-muted: #94a3b8;
-$bg-dark: #0f172a;
-$bg-darker: #020617;
-$bg-card: #1e293b;
-$bg-card-hover: #334155;
-$border-dark: #334155;
-$shadow-dark: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-$shadow-glow: 0 0 20px rgba(96, 165, 250, 0.3);
-$shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
+// Black, Gray, White 테마 변수
+$black: #000000;
+$black-light: #0a0a0a;
+$gray-dark: #1a1a1a;
+$gray-medium: #2a2a2a;
+$gray-light: #3a3a3a;
+$gray-lighter: #4a4a4a;
+$gray-border: #6a6a6a;
+$gray-text: #aaaaaa;
+$white: #ffffff;
+$white-dim: #f5f5f5;
+
+$text-light: $white;
+$text-gray: $gray-text;
+$text-muted: $gray-border;
+$bg-dark: $black;
+$bg-darker: $black-light;
+$bg-card: $gray-dark;
+$bg-card-hover: $gray-medium;
+$border-dark: $gray-light;
 
 // 홈 페이지 스타일
 .home-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  background: linear-gradient(135deg, $black 0%, $gray-dark 50%, $black 100%);
   background-size: 200% 200%;
   animation: gradientShift 15s ease infinite;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 1rem;
+  padding-top: 5rem;
   position: relative;
 
   &::before {
@@ -51,31 +54,40 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(96, 165, 250, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(129, 140, 248, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
     pointer-events: none;
   }
 
-  .content-card {
-    max-width: 42rem;
+  .home-content-wrapper {
+    max-width: 1200px;
     width: 100%;
-    background: rgba(30, 41, 59, 0.8);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(96, 165, 250, 0.2);
-    border-radius: 1rem;
-    padding: 2.5rem;
-    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     position: relative;
     z-index: 1;
+  }
+
+  .content-card {
+    width: 100%;
+    background: $gray-dark;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid $gray-light;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    position: relative;
+
+    &:first-child {
+      text-align: center;
+    }
 
     h1 {
       font-size: 2.5rem;
       font-weight: 700;
-      background: linear-gradient(135deg, $primary-blue 0%, $primary-cyan 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: $white;
       margin-bottom: 1rem;
     }
 
@@ -83,6 +95,17 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
       font-size: 1.125rem;
       color: $text-gray;
       margin-bottom: 1.5rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: $text-gray;
+    }
+
+    &:nth-child(2) {
+      h1 {
+        text-align: center;
+      }
     }
 
     .info-section {
@@ -93,15 +116,16 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
       .info-card {
         padding: 1.5rem;
         border-radius: 0.75rem;
-        border: 1px solid rgba(96, 165, 250, 0.2);
+        border: 1px solid $gray-light;
 
         &.blue {
-          background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(129, 140, 248, 0.1) 100%);
+          background: $gray-medium;
+          border-color: $gray-lighter;
 
           h2 {
             font-size: 1.25rem;
             font-weight: 600;
-            color: $primary-blue;
+            color: $white;
             margin-bottom: 0.5rem;
           }
 
@@ -111,23 +135,24 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
             margin-bottom: 0;
 
             code {
-              background: rgba(96, 165, 250, 0.2);
-              color: $primary-blue;
+              background: $gray-light;
+              color: $white;
               padding: 0.25rem 0.5rem;
               border-radius: 0.375rem;
               font-family: 'Courier New', monospace;
-              border: 1px solid rgba(96, 165, 250, 0.3);
+              border: 1px solid $gray-border;
             }
           }
         }
 
         &.green {
-          background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(96, 165, 250, 0.1) 100%);
+          background: $gray-medium;
+          border-color: $gray-lighter;
 
           h2 {
             font-size: 1.25rem;
             font-weight: 600;
-            color: $primary-cyan;
+            color: $white;
             margin-bottom: 0.5rem;
           }
 
@@ -137,12 +162,12 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
             margin-bottom: 0;
 
             code {
-              background: rgba(6, 182, 212, 0.2);
-              color: $primary-cyan;
+              background: $gray-light;
+              color: $white;
               padding: 0.25rem 0.5rem;
               border-radius: 0.375rem;
               font-family: 'Courier New', monospace;
-              border: 1px solid rgba(6, 182, 212, 0.3);
+              border: 1px solid $gray-border;
             }
           }
         }
@@ -166,7 +191,7 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
 // 공통 페이지 스타일
 .page-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  background: linear-gradient(135deg, $black 0%, $gray-dark 50%, $black 100%);
   background-size: 200% 200%;
   animation: gradientShift 15s ease infinite;
   padding: 1rem;
@@ -180,8 +205,8 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(96, 165, 250, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(129, 140, 248, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
     pointer-events: none;
   }
 }
@@ -191,10 +216,10 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(0, 0, 0, 0.9);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(96, 165, 250, 0.2);
+  border-bottom: 1px solid $gray-light;
   padding: 1rem 2rem;
   display: flex;
   gap: 1.5rem;
@@ -209,8 +234,8 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
     border-radius: 0.5rem;
 
     &.active {
-      color: $primary-blue;
-      background: rgba(96, 165, 250, 0.15);
+      color: $white;
+      background: $gray-medium;
       font-weight: 600;
     }
   }
@@ -224,10 +249,10 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
   z-index: 1;
 
   .content-card {
-    background: rgba(30, 41, 59, 0.8);
+    background: $gray-dark;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(96, 165, 250, 0.2);
+    border: 1px solid $gray-light;
     border-radius: 1rem;
     padding: 2.5rem;
     margin-bottom: 2rem;
@@ -235,10 +260,7 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
     h1 {
       font-size: 2.5rem;
       font-weight: 700;
-      background: linear-gradient(135deg, $primary-blue 0%, $primary-cyan 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: $white;
       margin-bottom: 0.5rem;
     }
 
@@ -264,10 +286,7 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
   h2 {
     font-size: 1.875rem;
     font-weight: 600;
-    background: linear-gradient(135deg, $primary-blue 0%, $primary-cyan 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: $white;
     margin-bottom: 1.5rem;
     text-align: center;
   }
@@ -279,17 +298,17 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
     margin-top: 2rem;
 
     .feature-card {
-      background: rgba(30, 41, 59, 0.6);
+      background: $gray-medium;
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       padding: 1.5rem;
       border-radius: 0.75rem;
-      border: 1px solid rgba(96, 165, 250, 0.2);
+      border: 1px solid $gray-light;
 
       h3 {
         font-size: 1.25rem;
         font-weight: 600;
-        color: $primary-blue;
+        color: $white;
         margin-bottom: 0.75rem;
       }
 
@@ -318,7 +337,7 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
   h2 {
     font-size: 1.5rem;
     font-weight: 600;
-    color: $primary-blue;
+    color: $white;
     margin-bottom: 1.5rem;
   }
 }
@@ -338,8 +357,8 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
     textarea {
       width: 100%;
       padding: 0.75rem;
-      background: rgba(30, 41, 59, 0.6);
-      border: 1px solid rgba(96, 165, 250, 0.2);
+      background: $gray-medium;
+      border: 1px solid $gray-light;
       border-radius: 0.5rem;
       font-size: 1rem;
       font-family: inherit;
@@ -347,7 +366,7 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
 
       &:focus {
         outline: none;
-        border-color: $primary-blue;
+        border-color: $gray-border;
       }
 
       &::placeholder {
@@ -364,9 +383,9 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
   .submit-btn {
     width: 100%;
     padding: 0.75rem 1.5rem;
-    background: linear-gradient(135deg, $primary-blue 0%, $primary-cyan 100%);
-    color: white;
-    border: none;
+    background: $gray-light;
+    color: $white;
+    border: 1px solid $gray-border;
     border-radius: 0.5rem;
     font-size: 1rem;
     font-weight: 600;
@@ -378,22 +397,22 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
   h2 {
     font-size: 1.5rem;
     font-weight: 600;
-    color: $primary-blue;
+    color: $white;
     margin-bottom: 1.5rem;
   }
 
   .info-item {
     padding: 1.25rem;
-    background: rgba(30, 41, 59, 0.6);
+    background: $gray-medium;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(96, 165, 250, 0.2);
+    border: 1px solid $gray-light;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
 
     strong {
       display: block;
-      color: $primary-blue;
+      color: $white;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
@@ -401,6 +420,100 @@ $shadow-glow-strong: 0 0 30px rgba(96, 165, 250, 0.5);
     span {
       color: $text-gray;
       display: block;
+    }
+  }
+}
+
+// 비교 섹션 스타일
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.comparison-card {
+  background: $gray-medium;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid $gray-light;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+
+  .comparison-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $gray-light;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $white;
+      margin-bottom: 0.5rem;
+    }
+
+    .comparison-type {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: $gray-medium;
+      color: $gray-text;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+  }
+
+  .comparison-pros,
+  .comparison-cons {
+    margin-bottom: 1.5rem;
+
+    h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: $text-light;
+      margin-bottom: 0.75rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 0.5rem 0;
+        color: $text-gray;
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        border-bottom: 1px solid $gray-light;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  .comparison-pros {
+    h3 {
+      color: $white;
+    }
+
+    ul li {
+      color: $text-gray;
+    }
+  }
+
+  .comparison-cons {
+    h3 {
+      color: $gray-text;
+    }
+
+    ul li {
+      color: $text-muted;
     }
   }
 }

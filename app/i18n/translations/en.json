@@ -59,6 +59,59 @@
       "phone": "Phone",
       "address": "Address"
     }
+  },
+  "comparison": {
+    "title": "React vs Next.js vs Remix",
+    "subtitle": "Framework Comparison",
+    "pros": "Pros",
+    "cons": "Cons",
+    "react": {
+      "title": "React",
+      "type": "UI Library",
+      "pros": {
+        "0": "Lightweight & Flexible",
+        "1": "Rich Ecosystem",
+        "2": "Low Learning Curve",
+        "3": "Library Compatibility"
+      },
+      "cons": {
+        "0": "SEO Requires Setup",
+        "1": "Manual Routing",
+        "2": "No Server Features"
+      }
+    },
+    "nextjs": {
+      "title": "Next.js",
+      "type": "Full-Stack Framework",
+      "pros": {
+        "0": "SEO Optimized (SSR/SSG)",
+        "1": "Built-in Routing",
+        "2": "Image/Font Optimization",
+        "3": "API Routes",
+        "4": "Large Community"
+      },
+      "cons": {
+        "0": "Long Build Times",
+        "1": "Complex Configuration",
+        "2": "Vercel Dependency"
+      }
+    },
+    "remix": {
+      "title": "Remix",
+      "type": "Full-Stack Framework",
+      "pros": {
+        "0": "Excellent Performance",
+        "1": "Web Standards Based",
+        "2": "Strong Data Loading",
+        "3": "Progressive Enhancement",
+        "4": "Fast DX"
+      },
+      "cons": {
+        "0": "Smaller Community",
+        "1": "Learning Curve",
+        "2": "Smaller Plugin Ecosystem"
+      }
+    }
   }
 }
 

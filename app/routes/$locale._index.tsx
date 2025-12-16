@@ -32,23 +32,101 @@ export default function Index() {
       </nav>
 
       <div className="home-container">
-        <div className="content-card">
-          <h1>{t(currentLocale, "welcome")}</h1>
-          <p>{t(currentLocale, "description")}</p>
-          <div className="info-section">
-            <div className="info-card blue">
-              <h2>{t(currentLocale, "gettingStarted.title")}</h2>
-              <p>
-                <code>{t(currentLocale, "gettingStarted.code")}</code>{" "}
-                {t(currentLocale, "gettingStarted.description")}
-              </p>
+        <div className="home-content-wrapper">
+          <div className="content-card">
+            <h1>{t(currentLocale, "welcome")}</h1>
+            <p>{t(currentLocale, "description")}</p>
+            <div className="info-section">
+              <div className="info-card blue">
+                <h2>{t(currentLocale, "gettingStarted.title")}</h2>
+                <p>
+                  <code>{t(currentLocale, "gettingStarted.code")}</code>{" "}
+                  {t(currentLocale, "gettingStarted.description")}
+                </p>
+              </div>
+              <div className="info-card green">
+                <h2>{t(currentLocale, "devServer.title")}</h2>
+                <p>
+                  <code>{t(currentLocale, "devServer.code")}</code>{" "}
+                  {t(currentLocale, "devServer.description")}
+                </p>
+              </div>
             </div>
-            <div className="info-card green">
-              <h2>{t(currentLocale, "devServer.title")}</h2>
-              <p>
-                <code>{t(currentLocale, "devServer.code")}</code>{" "}
-                {t(currentLocale, "devServer.description")}
-              </p>
+          </div>
+
+          <div className="content-card">
+            <h1>{t(currentLocale, "comparison.title")}</h1>
+            <p className="subtitle">{t(currentLocale, "comparison.subtitle")}</p>
+
+            <div className="comparison-grid">
+              <div className="comparison-card">
+                <div className="comparison-header">
+                  <h2>{t(currentLocale, "comparison.react.title")}</h2>
+                  <span className="comparison-type">{t(currentLocale, "comparison.react.type")}</span>
+                </div>
+                <div className="comparison-pros">
+                  <h3>{t(currentLocale, "comparison.pros")}</h3>
+                  <ul>
+                    {[0, 1, 2, 3].map((idx) => (
+                      <li key={idx}>✓ {t(currentLocale, `comparison.react.pros.${idx}`)}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="comparison-cons">
+                  <h3>{t(currentLocale, "comparison.cons")}</h3>
+                  <ul>
+                    {[0, 1, 2].map((idx) => (
+                      <li key={idx}>✗ {t(currentLocale, `comparison.react.cons.${idx}`)}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="comparison-card">
+                <div className="comparison-header">
+                  <h2>{t(currentLocale, "comparison.nextjs.title")}</h2>
+                  <span className="comparison-type">{t(currentLocale, "comparison.nextjs.type")}</span>
+                </div>
+                <div className="comparison-pros">
+                  <h3>{t(currentLocale, "comparison.pros")}</h3>
+                  <ul>
+                    {[0, 1, 2, 3, 4].map((idx) => (
+                      <li key={idx}>✓ {t(currentLocale, `comparison.nextjs.pros.${idx}`)}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="comparison-cons">
+                  <h3>{t(currentLocale, "comparison.cons")}</h3>
+                  <ul>
+                    {[0, 1, 2].map((idx) => (
+                      <li key={idx}>✗ {t(currentLocale, `comparison.nextjs.cons.${idx}`)}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="comparison-card">
+                <div className="comparison-header">
+                  <h2>{t(currentLocale, "comparison.remix.title")}</h2>
+                  <span className="comparison-type">{t(currentLocale, "comparison.remix.type")}</span>
+                </div>
+                <div className="comparison-pros">
+                  <h3>{t(currentLocale, "comparison.pros")}</h3>
+                  <ul>
+                    {[0, 1, 2, 3, 4].map((idx) => (
+                      <li key={idx}>✓ {t(currentLocale, `comparison.remix.pros.${idx}`)}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="comparison-cons">
+                  <h3>{t(currentLocale, "comparison.cons")}</h3>
+                  <ul>
+                    {[0, 1, 2].map((idx) => (
+                      <li key={idx}>✗ {t(currentLocale, `comparison.remix.cons.${idx}`)}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
